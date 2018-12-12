@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>To sell</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <style >img{width: 100%;}</style>
+</head>
+
+<body class="container" id="dody">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+        $.getJSON("data.json", showData);
+        function showData(data) {
+            data = data["List"]["data"];
+            for (let i = 0; i < data.length; i++) {
+                const el = data[i];
+                $("body").append("<h1>"+el["Title"]+"</h1>");
+                $("body").append("<h2 class='text-secondary'>$"+el["Price"]+"</h2>");
+                $("body").append("<p>"+el["Description"]+"</p>");
+                $("body").append("<img src='"+el["Pic"]+"'>");
+                $("body").append("<hr>");
+            }
+        }
+    </script>
+</body>
+
+</html>
